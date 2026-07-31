@@ -93,8 +93,11 @@
 
     <section class="section">
       <div class="container">
+        <!-- Equal columns, and each one is a flex column so that mt-auto can push
+             the photograph to the bottom. Music has a paragraph more than Football,
+             so without this the two photographs would not line up. -->
         <div class="row g-4">
-          <div class="col-12 col-lg-7">
+          <div class="col-12 col-lg-6 d-flex flex-column">
             <h2>Music</h2>
             <p>
               Samba came out of the working-class districts of Rio in the early twentieth
@@ -116,9 +119,12 @@
               <span lang="pt-BR">sertanejo</span> inland,
               <span lang="pt-BR">funk carioca</span> in Rio.
             </p>
+            <img src="../images/samba.jpg" width="900" height="600" loading="lazy" decoding="async"
+                 alt="A samba circle in Rio, with pandeiro and cavaquinho players"
+                 class="img-fluid rounded mt-auto">
           </div>
 
-          <div class="col-12 col-lg-5">
+          <div class="col-12 col-lg-6 d-flex flex-column">
             <h2>Football</h2>
             <p>
               Brazil has won the men&rsquo;s World Cup five times (1958, 1962, 1970,
@@ -129,6 +135,9 @@
               If you can get to a league match, go. The Maracan&atilde; in Rio is the obvious
               one, but a smaller local derby will tell you more about the place.
             </p>
+            <img src="../images/maracana.jpg" width="900" height="600" loading="lazy" decoding="async"
+                 alt="A full Maracana stadium at night during a Rio derby"
+                 class="img-fluid rounded mt-auto">
           </div>
         </div>
       </div>

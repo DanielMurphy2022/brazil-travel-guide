@@ -15,6 +15,8 @@ site itself, which is what these licences require.
 | `images/escadaria.jpg` | Escadaria Selarón, Lapa, Rio de Janeiro | Donatas Dabravolskas | CC BY-SA 4.0 | <https://commons.wikimedia.org/wiki/File:Colorful_Selaron_Stairs_3.jpg> |
 | `images/sagui.jpg` | Common marmoset on the Sugarloaf trail, Rio de Janeiro | Avelludo | CC BY-SA 4.0 | <https://commons.wikimedia.org/wiki/File:Sagui_na_trilha_do_P%C3%A3o_de_A%C3%A7%C3%BAcar_(2024-09-29)_05.jpg> |
 | `images/arara.jpg` | Blue-and-yellow macaw (*Ara ararauna*) | Bernard DUPONT | CC BY-SA 2.0 | <https://commons.wikimedia.org/wiki/File:Blue-and-yellow_Macaw_(Ara_ararauna)_(27727994334).jpg> |
+| `images/samba.jpg` | Samba circle at the Clube dos Fumagueiros, Tijuca, Rio de Janeiro | Lgjunior | CC BY-SA 4.0 | <https://commons.wikimedia.org/wiki/File:Roda_de_Samba_no_Clube_do_Fumagueiros_-_Tijuca_-_Rio_de_Janeiro.jpg> |
+| `images/maracana.jpg` | The Maracanã during Fluminense against Vasco da Gama, May 2023 | Vincenzo.togni | CC BY-SA 4.0 | <https://commons.wikimedia.org/wiki/File:The_Maracanã_Stadium_during_a_Clássico_dos_Gigantes_between_Fluminense_and_Vasco_da_Gama_in_May_2023.jpg> |
 | `images/hero-rio.jpg` | Christ the Redeemer and Sugarloaf at sunset, Rio de Janeiro | Donatas Dabravolskas | CC BY-SA 4.0 | |
 | `images/iguacu.jpg` | Iguaçu Falls | W. Bulach | CC BY-SA 4.0 |
 | `images/salvador.jpg` | Largo do Pelourinho, Salvador | Romerito Pontes | CC BY 2.0 |

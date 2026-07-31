@@ -28,8 +28,14 @@ The four photographs at the top of the table were cropped and resized for the si
 nothing else about them was altered. CC BY-SA only asks for credit and for the licence
 to be named, which is done both here and on the Destinations page.
 
-`images/logo.svg` was drawn for this project, from the *Beyond Brazil* mark, as an SVG
-so that it stays sharp at any size and costs about a kilobyte instead of two megabytes.
+`images/logo.svg` — the *Beyond Brazil* mark. The design was generated from a written
+brief using an AI image tool (the prompt and the result are shown in the Planning &amp;
+Analysis Sheet). What came back was a 1024 × 1024 PNG of about 1.4 MB with the
+background painted in rather than transparent, which is not usable on a web page: it
+would have shown as a grey square in the banner and been unreadable at the 42px the
+header actually uses. I redrew the same mark — rising sun, tropical leaves, water — as
+an SVG of about one kilobyte, using the three brand colours from the brief
+(`#0A4D3A`, `#187A57`, `#F2B134`). It is transparent and stays sharp at any size.
 
 ## Video
 

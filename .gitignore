@@ -1,0 +1,17 @@
+# OS clutter
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*.code-workspace
+
+# Local scratch
+*.log
+*.tmp
+
+# Working notes - not part of the submission and not for the repository
+docs/GIT-AND-DEPLOY.md
+docs/PLANNING-SHEET-DRAFT.md

@@ -36,8 +36,17 @@ Analysis Sheet). What came back was a 1024 × 1024 PNG of about 1.4 MB with the
 background painted in rather than transparent, which is not usable on a web page: it
 would have shown as a grey square in the banner and been unreadable at the 42px the
 header actually uses. I redrew the same mark — rising sun, tropical leaves, water — as
-an SVG of about one kilobyte, using the three brand colours from the brief
-(`#0A4D3A`, `#187A57`, `#F2B134`). It is transparent and stays sharp at any size.
+an SVG of about one kilobyte. It is transparent and stays sharp at any size.
+
+The three colours in the original brief were two greens and a gold
+(`#0A4D3A`, `#187A57`, `#F2B134`). I added a fourth. In the generated version the water
+at the bottom was green, the same as the leaves, so it read as another leaf rather than
+as water — and at the size the header uses, the whole mark collapsed into one green
+shape. Making the water blue (`#1A73B8`, with `#0D4C82` underneath) separates the three
+elements, and has the side effect of completing the green, gold and blue that people
+associate with the country. The ocean blue was chosen over the flag's own `#002776`
+because the rest of the site is warm and editorial, and the flag blue pulled it towards
+looking official.
 
 ## Video
 

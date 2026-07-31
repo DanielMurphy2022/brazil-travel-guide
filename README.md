@@ -41,7 +41,7 @@ brazil-travel-guide/
 ├── 404.html        error page (also served from the root)
 ├── html/           the three content pages
 ├── css/style.css   the stylesheet
-├── images/         12 photographs and the SVG logo
+├── images/         14 photographs and the SVG logo
 ├── docs/           site map, wireframe and the list of sources
 └── README.md
 ```

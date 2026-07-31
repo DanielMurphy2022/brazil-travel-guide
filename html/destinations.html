@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Six Brazilian destinations for a first trip - Rio de Janeiro, Iguacu Falls, Salvador, the Amazon, Ouro Preto and Lencois Maranhenses - plus a table of Brazil's UNESCO World Heritage Sites.">
+  <meta name="author" content="Daniel Murphy">
+  <meta name="keywords" content="Brazil destinations, Rio de Janeiro, Iguacu Falls, Salvador, Amazon, Ouro Preto, Lencois Maranhenses, UNESCO">
+  <meta name="theme-color" content="#00693E">
+  <title>Destinations | Beyond Brazil</title>
+
+  <!-- Canonical URL, so search engines index one version of the page -->
+  <link rel="canonical" href="https://danielmurphy2022.github.io/brazil-travel-guide/html/destinations.html">
+
+  <!-- Open Graph tags - what shows up when the page is shared -->
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_IE">
+  <meta property="og:site_name" content="Beyond Brazil">
+  <meta property="og:title" content="Destinations | Beyond Brazil">
+  <meta property="og:description" content="Six Brazilian destinations for a first trip, plus a table of the country's UNESCO World Heritage Sites.">
+  <meta property="og:url" content="https://danielmurphy2022.github.io/brazil-travel-guide/html/destinations.html">
+  <meta property="og:image" content="https://danielmurphy2022.github.io/brazil-travel-guide/images/iguacu.jpg">
+  <meta property="og:image:alt" content="The Iguacu Falls dropping over a line of cliffs into rainforest">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts: Fraunces for headings, Libre Franklin for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Libre+Franklin:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap">
+
+  <!-- Bootstrap 5 for the grid and the collapsing navbar. The integrity
+       hash lets the browser check the file was not tampered with. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous">
+  <!-- My stylesheet goes last so it can override Bootstrap -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Banner / logo area. Same on every page. -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg site-nav" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img src="../images/logo.svg" alt="Beyond Brazil logo" class="brand-logo" width="42" height="42">
+          <span class="brand-lockup">
+            <span class="brand-name">Beyond Brazil</span>
+            <span class="brand-tagline">Discover more, experience deeper</span>
+          </span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mainMenu" aria-controls="mainMenu"
+                aria-expanded="false" aria-label="Toggle navigation menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="destinations.html" aria-current="page">Destinations</a></li>
+            <li class="nav-item"><a class="nav-link" href="culture.html">Culture</a></li>
+            <li class="nav-item"><a class="nav-link" href="plan-your-trip.html">Plan your trip</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Breadcrumb: shows where this page sits in the site -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><span aria-current="page">Destinations</span></li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Destinations</h1>
+        <p>Six places that between them show you six completely different countries.</p>
+      </div>
+    </section>
+
+    <!-- BONUS FEATURE - image gallery, CSS only.
+         Each photo links down to its write-up. The caption is pushed out of
+         the frame and slides back on hover or keyboard focus. No JavaScript
+         - see section 9 of style.css. -->
+    <section class="section">
+      <div class="container">
+        <h2>Gallery</h2>
+        <p class="section-intro">
+          Hover over a photo, or tab to it with the keyboard, to see which
+          destination it belongs to. Select one to jump to its write-up.
+        </p>
+
+        <ul class="gallery">
+          <li class="gallery-item">
+            <a href="#rio">
+              <img src="../images/hero-rio.jpg" width="1200" height="796" decoding="async"
+                   alt="Christ the Redeemer against an orange sunset, with Sugarloaf Mountain behind">
+              <span class="gallery-caption"><strong>Rio de Janeiro</strong> Mountains, bay and beaches</span>
+            </a>
+          </li>
+          <li class="gallery-item">
+            <a href="#iguacu">
+              <img src="../images/iguacu.jpg" width="1200" height="800" decoding="async"
+                   alt="The Iguacu Falls seen through rainforest, with mist rising off the cliffs">
+              <span class="gallery-caption"><strong>Igua&ccedil;u Falls</strong> 275 drops on the Argentine border</span>
+            </a>
+          </li>
+          <li class="gallery-item">
+            <a href="#salvador">
+              <img src="../images/salvador.jpg" width="1200" height="800" loading="lazy" decoding="async"
+                   alt="Brightly painted colonial houses on a cobbled street in Salvador">
+              <span class="gallery-caption"><strong>Salvador</strong> Brazil&rsquo;s first capital</span>
+            </a>
+          </li>
+          <li class="gallery-item">
+            <a href="#amazon">
+              <img src="../images/amazon.jpg" width="1200" height="736" loading="lazy" decoding="async"
+                   alt="A wide brown river winding through the Amazon rainforest, from the air">
+              <span class="gallery-caption"><strong>The Amazon</strong> Rainforest and river cities</span>
+            </a>
+          </li>
+          <li class="gallery-item">
+            <a href="#ouro-preto">
+              <img src="../images/ouro-preto.jpg" width="1200" height="900" loading="lazy" decoding="async"
+                   alt="A white baroque church at the top of a cobbled street in Ouro Preto">
+              <span class="gallery-caption"><strong>Ouro Preto</strong> A gold-rush town in the hills</span>
+            </a>
+          </li>
+          <li class="gallery-item">
+            <a href="#lencois">
+              <img src="../images/lencois.jpg" width="1200" height="800" loading="lazy" decoding="async"
+                   alt="A turquoise lagoon between white sand dunes at Lencois Maranhenses">
+              <span class="gallery-caption"><strong>Len&ccedil;&oacute;is Maranhenses</strong> Dunes full of rainwater</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== The six write-ups ===== -->
+    <section class="section section-tint">
+      <div class="container">
+        <h2>The six, in detail</h2>
+
+        <div class="row g-4">
+          <article class="dest-entry col-12 col-lg-6" id="rio">
+            <h3>Rio de Janeiro</h3>
+
+            <!-- dl is the right element for label/value pairs like these -->
+            <dl class="spec-list">
+              <dt>Fly into</dt>
+              <dd>Gale&atilde;o (GIG), or Santos Dumont (SDU) from within Brazil</dd>
+              <dt>Best months</dt>
+              <dd>May to October, drier and cooler</dd>
+              <dt>World Heritage</dt>
+              <dd>Listed 2012</dd>
+            </dl>
+
+            <p>
+              Rio is built into the gaps between granite peaks and the Atlantic, which is
+              why it looks the way it does. The city is unusual in having a genuine
+              rainforest inside it: Tijuca, replanted by hand in the nineteenth
+              century after the hillsides had been cleared for coffee.
+            </p>
+            <p>
+              The whole landscape, rather than a single monument, is what UNESCO listed in
+              2012 under the title &ldquo;Carioca Landscapes between the Mountain and the Sea&rdquo;.
+            </p>
+          </article>
+
+          <article class="dest-entry col-12 col-lg-6" id="iguacu">
+            <h3>Igua&ccedil;u Falls</h3>
+
+            <dl class="spec-list">
+              <dt>Fly into</dt>
+              <dd>Foz do Igua&ccedil;u (IGU)</dd>
+              <dt>Best months</dt>
+              <dd>Open all year; the falls carry most water from December to March</dd>
+              <dt>World Heritage</dt>
+              <dd>Listed 1986</dd>
+            </dl>
+
+            <p>
+              Around 275 separate falls spread along nearly three kilometres of cliff, on
+              the border between Paran&aacute; and Argentina. The Brazilian side gives you the
+              panorama; the Argentine side puts you on walkways over the water. Most
+              visitors do both, which means crossing the border.
+            </p>
+            <p>
+              Igua&ccedil;u National Park was inscribed as a natural World Heritage Site in 1986.
+            </p>
+          </article>
+
+          <article class="dest-entry col-12 col-lg-6" id="salvador">
+            <h3>Salvador</h3>
+
+            <dl class="spec-list">
+              <dt>Fly into</dt>
+              <dd>Salvador (SSA)</dd>
+              <dt>Best months</dt>
+              <dd>September to March, the drier half of the year</dd>
+              <dt>World Heritage</dt>
+              <dd>Listed 1985</dd>
+            </dl>
+
+            <p>
+              Salvador was the capital of Brazil until 1763 and remains the centre of
+              Afro-Brazilian culture. Capoeira, candombl&eacute; and the drumming that fed into
+              modern Brazilian music all run through here.
+            </p>
+            <p>
+              The Pelourinho, its steep old town of pastel colonial houses, has been a
+              World Heritage Site since 1985.
+            </p>
+          </article>
+
+          <article class="dest-entry col-12 col-lg-6" id="amazon">
+            <h3>The Amazon</h3>
+
+            <dl class="spec-list">
+              <dt>Fly into</dt>
+              <dd>Manaus (MAO)</dd>
+              <dt>Best months</dt>
+              <dd>High water February to June for boat trips; low water August to November for river beaches and forest walks</dd>
+              <dt>World Heritage</dt>
+              <dd>Listed 2000</dd>
+            </dl>
+
+            <p>
+              Most trips start in Manaus, a city of two million reachable in practice only
+              by plane or boat. Just downstream, the black water of the Rio Negro runs
+              alongside the pale Solim&otilde;es for several kilometres without mixing. This is
+              the Meeting of the Waters.
+            </p>
+            <p>
+              The Central Amazon Conservation Complex was listed in 2000.
+            </p>
+          </article>
+
+          <article class="dest-entry col-12 col-lg-6" id="ouro-preto">
+            <h3>Ouro Preto</h3>
+
+            <dl class="spec-list">
+              <dt>Fly into</dt>
+              <dd>Belo Horizonte (CNF), then about two hours by road</dd>
+              <dt>Best months</dt>
+              <dd>April to September, outside the summer rain</dd>
+              <dt>World Heritage</dt>
+              <dd>Listed 1980, the first site in Brazil</dd>
+            </dl>
+
+            <p>
+              A gold-rush town in the hills of Minas Gerais that was, briefly in the
+              1700s, one of the richest places in the world. The money went into baroque
+              churches, many carved by Aleijadinho, and then the gold ran out and the
+              town stopped changing.
+            </p>
+            <p>
+              It was Brazil&rsquo;s very first World Heritage Site, inscribed in 1980.
+            </p>
+          </article>
+
+          <article class="dest-entry col-12 col-lg-6" id="lencois">
+            <h3>Len&ccedil;&oacute;is Maranhenses</h3>
+
+            <dl class="spec-list">
+              <dt>Fly into</dt>
+              <dd>S&atilde;o Lu&iacute;s (SLZ), then on by road to Barreirinhas</dd>
+              <dt>Best months</dt>
+              <dd>June to September, while the lagoons still hold rainwater</dd>
+              <dt>World Heritage</dt>
+              <dd>Listed 2024</dd>
+            </dl>
+
+            <p>
+              A field of white dunes in Maranh&atilde;o that fills with rainwater every wet
+              season, leaving thousands of freshwater lagoons sitting between the sand
+              ridges. They are at their fullest in the middle of the year and dry out
+              again later, so timing matters more here than anywhere else in this guide.
+            </p>
+            <p>
+              The national park was added to the World Heritage List in 2024.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- REQUIRED TABLE - real data, not a layout table.
+         thead/tbody, scope on the headers and a caption, so a screen reader
+         can read the structure properly. -->
+    <section class="section">
+      <div class="container">
+        <h2>Brazil&rsquo;s World Heritage Sites</h2>
+        <p class="section-intro">
+          Brazil has more than twenty sites on the
+          <abbr title="United Nations Educational, Scientific and Cultural Organization">UNESCO</abbr>
+          World Heritage List. The
+          twelve below are the ones nearest to the destinations covered above.
+        </p>
+
+        <!-- tabindex so the box can be scrolled with the keyboard too -->
+        <div class="table-wrap" role="region" aria-label="Table of selected UNESCO World Heritage Sites in Brazil, scrollable sideways" tabindex="0">
+          <table class="data-table">
+            <caption>
+              Selected UNESCO World Heritage Sites in Brazil, ordered by the year they
+              were inscribed. Source: UNESCO World Heritage Centre, State Party listing
+              for Brazil.
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Site</th>
+                <th scope="col">State or region</th>
+                <th scope="col">Inscribed</th>
+                <th scope="col">Category</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Historic Town of Ouro Preto</th>
+                <td>Minas Gerais</td>
+                <td>1980</td>
+                <td><span class="tag tag-cultural">Cultural</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Historic Centre of the Town of Olinda</th>
+                <td>Pernambuco</td>
+                <td>1982</td>
+                <td><span class="tag tag-cultural">Cultural</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Historic Centre of Salvador da Bahia</th>
+                <td>Bahia</td>
+                <td>1985</td>
+                <td><span class="tag tag-cultural">Cultural</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Igua&ccedil;u National Park</th>
+                <td>Paran&aacute;</td>
+                <td>1986</td>
+                <td><span class="tag tag-natural">Natural</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Bras&iacute;lia</th>
+                <td>Federal District</td>
+                <td>1987</td>
+                <td><span class="tag tag-cultural">Cultural</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Historic Centre of S&atilde;o Lu&iacute;s</th>
+                <td>Maranh&atilde;o</td>
+                <td>1997</td>
+                <td><span class="tag tag-cultural">Cultural</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Central Amazon Conservation Complex</th>
+                <td>Amazonas</td>
+                <td>2000</td>
+                <td><span class="tag tag-natural">Natural</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Pantanal Conservation Area</th>
+                <td>Mato Grosso and Mato Grosso do Sul</td>
+                <td>2000</td>
+                <td><span class="tag tag-natural">Natural</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Brazilian Atlantic Islands: Fernando de Noronha and Atol das Rocas Reserves</th>
+                <td>Pernambuco and Rio Grande do Norte</td>
+                <td>2001</td>
+                <td><span class="tag tag-natural">Natural</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Rio de Janeiro: Carioca Landscapes between the Mountain and the Sea</th>
+                <td>Rio de Janeiro</td>
+                <td>2012</td>
+                <td><span class="tag tag-cultural">Cultural</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Paraty and Ilha Grande &ndash; Culture and Biodiversity</th>
+                <td>Rio de Janeiro</td>
+                <td>2019</td>
+                <td><span class="tag tag-mixed">Mixed</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Len&ccedil;&oacute;is Maranhenses National Park</th>
+                <td>Maranh&atilde;o</td>
+                <td>2024</td>
+                <td><span class="tag tag-natural">Natural</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Required external hyperlink, in a context where it makes sense -->
+        <p>
+          The full and current list is maintained by UNESCO:
+          <a href="https://whc.unesco.org/en/statesparties/br" target="_blank" rel="noopener noreferrer">
+            World Heritage Sites in Brazil (opens in a new tab)
+          </a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Photo credits. The CC licences need attribution, so it goes here. -->
+    <section class="section section-tint">
+      <div class="container">
+        <h2>Photo credits</h2>
+        <p class="section-intro">
+          All twelve photographs on this site come from Wikimedia Commons and are reused
+          under their Creative Commons licences.
+        </p>
+        <ul class="credits">
+          <li>Home page banner, Christ the Redeemer above the clouds &mdash; Donatas Dabravolskas, CC BY-SA 4.0</li>
+          <li>Escadaria Selar&oacute;n &mdash; Donatas Dabravolskas, CC BY-SA 4.0</li>
+          <li>Marmoset on the Sugarloaf trail &mdash; Avelludo, CC BY-SA 4.0</li>
+          <li>Blue-and-yellow macaw &mdash; Bernard DUPONT, CC BY-SA 2.0</li>
+          <li>Rio de Janeiro &mdash; Donatas Dabravolskas, CC BY-SA 4.0</li>
+          <li>Igua&ccedil;u Falls &mdash; W. Bulach, CC BY-SA 4.0</li>
+          <li>Salvador &mdash; Romerito Pontes, CC BY 2.0</li>
+          <li>The Amazon &mdash; lubasi, CC BY-SA 2.0</li>
+          <li>Len&ccedil;&oacute;is Maranhenses &mdash; Paulo Cattelan, CC BY-SA 4.0</li>
+          <li>Ouro Preto &mdash; Adam Jones, CC BY-SA 3.0</li>
+          <li>Carnival &mdash; Sandra de Souza, CC BY-SA 2.0</li>
+          <li>Feijoada &mdash; Ridiculopathy, CC0</li>
+        </ul>
+
+        <p><a class="to-top" href="#main">&uarr; Back to the top of the page</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer, with the contact section. Same on every page. -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <h2>Beyond Brazil</h2>
+          <p>
+            A student travel guide written for the Web Design assignment on the
+            UCD Professional Academy Professional Diploma.
+          </p>
+        </div>
+
+        <div class="col-6 col-md-4">
+          <h3>Pages</h3>
+          <ul class="footer-list">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="culture.html">Culture</a></li>
+            <li><a href="plan-your-trip.html">Plan your trip</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4">
+          <h3>Contact</h3>
+          <address>
+            Questions or corrections?<br>
+            <a href="mailto:DanoMurphy@live.ie">DanoMurphy@live.ie</a>
+          </address>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 Daniel Murphy. Photographs are from Wikimedia Commons and are
+          credited above.
+          Travel information last reviewed in <time datetime="2026-07">July 2026</time>.
+          Always check the official sources before you book.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+          crossorigin="anonymous"></script>
+</body>
+</html>

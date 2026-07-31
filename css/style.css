@@ -1,0 +1,1148 @@
+/* ==========================================================================
+   Beyond Brazil - external stylesheet
+   Author: Daniel Murphy
+   Module 1 - Web Design Assignment, UCD Professional Academy
+
+   Went for a travel-magazine look: serif headings, plain sans for reading.
+
+   Mobile-first - the rules below are the phone layout and the media queries
+   add the wider ones. Text colours checked against WCAG AA (4.5:1).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design tokens
+   Keeping colours and spacing in custom properties means a single change
+   here updates the whole site.
+   -------------------------------------------------------------------------- */
+:root {
+  --brand:        #00693E;  /* deep forest green - primary brand colour   */
+  --brand-dark:   #0B3D2E;  /* footer / dark sections                     */
+  --brand-light:  #E6F2EC;  /* tinted panel background                    */
+  --accent:       #B25900;  /* amber, used for text on light backgrounds  */
+  --accent-bright:#FFC94A;  /* brighter amber, only on dark backgrounds   */
+  --ink:          #1F2A24;  /* body text                                  */
+  --ink-soft:     #4A5A52;  /* secondary text                             */
+  --paper:        #FFFFFF;
+  --line:         #D8E2DC;  /* hairline borders                           */
+
+  /* Fraunces for headings, Libre Franklin for everything you actually read.
+     Libre Franklin was made for small text on screen, which is where the
+     default system font looked worst. */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-text: "Libre Franklin", "Segoe UI", system-ui, sans-serif;
+
+  /* Type scale. Every font-size on the site uses one of these seven
+     steps instead of a number I picked at random. */
+  --step--2: clamp(0.69rem, 0.675rem + 0.07vw, 0.73rem);
+  --step--1: clamp(0.82rem, 0.80rem + 0.10vw, 0.88rem);
+  --step-0:  clamp(1rem,    0.97rem + 0.15vw, 1.07rem);
+  --step-1:  clamp(1.12rem, 1.06rem + 0.28vw, 1.27rem);
+  --step-2:  clamp(1.3rem,  1.21rem + 0.44vw, 1.55rem);
+  --step-3:  clamp(1.6rem,  1.42rem + 0.85vw, 2.1rem);
+  --step-4:  clamp(1.95rem, 1.65rem + 1.5vw, 2.9rem);
+
+  --radius: 10px;
+  --shadow: 0 2px 10px rgba(11, 61, 46, 0.10);
+  --shadow-lift: 0 10px 24px rgba(11, 61, 46, 0.18);
+
+  /* A curve with some weight to it, rather than the browser default. */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --transition: 260ms var(--ease);
+}
+
+/* --------------------------------------------------------------------------
+   2. Base elements
+   -------------------------------------------------------------------------- */
+body {
+  font-family: var(--font-text);
+  font-size: var(--step-0);
+  color: var(--ink);
+  background-color: var(--paper);
+  line-height: 1.62;
+  /* Stops the browser faking a bold the font does not actually have */
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* All headings use the serif and come off the type scale above. */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--brand-dark);
+}
+
+/* text-wrap: balance stops a heading dropping one word onto line two */
+h1 { font-size: var(--step-4); text-wrap: balance; }
+h2 { font-size: var(--step-3); margin-top: 2.25rem; text-wrap: balance; }
+h3 { font-size: var(--step-2); letter-spacing: -0.01em; }
+
+/* Small amber rule + spaced capitals, used above section headings */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: none;
+  margin: 0 0 0.7rem;
+  font-family: var(--font-text);
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.eyebrow::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 2.25rem;
+  height: 2px;
+  background-color: var(--accent);
+}
+
+/* Drop the margin when the heading is first - the section already pads */
+.container > h2:first-child,
+.container > .row:first-child h2:first-child,
+.eyebrow + h2 {
+  margin-top: 0;
+}
+
+/* Line length. Much past this and it gets hard to find the next line. */
+p  { max-width: 64ch; }
+
+a {
+  color: var(--brand);
+  text-decoration: underline;
+}
+
+a:hover,
+a:focus {
+  color: var(--brand-dark);
+}
+
+/* Visited links go a shade darker so you can see where you have been */
+a:visited {
+  color: var(--brand-dark);
+}
+
+/* Keyboard focus ring. The browser default vanishes on coloured
+   backgrounds, so I set my own. */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Keeps images inside their box instead of pushing the page sideways */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --------------------------------------------------------------------------
+   3. Skip link
+   Lets a keyboard or screen-reader user jump straight past the navigation.
+   It is hidden off-screen until it receives focus.
+   -------------------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1100;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--brand-dark);
+  color: var(--paper);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. Banner / logo area  (identical on every page)
+   -------------------------------------------------------------------------- */
+/* Sticky banner, slightly see-through so the page shows through it. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background-color: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid var(--line);
+}
+
+/* 0.85 and not lower: any more see-through and the menu links stop
+   passing the contrast check once the hero photo scrolls under them. */
+@supports (backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px)) {
+  .site-header {
+    background-color: rgba(255, 255, 255, 0.85);
+    -webkit-backdrop-filter: blur(14px) saturate(1.5);
+    backdrop-filter: blur(14px) saturate(1.5);
+  }
+}
+
+.site-nav {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--brand-dark);
+  text-decoration: none;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: var(--brand);
+}
+
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+}
+
+.brand-name {
+  display: block;
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.brand-tagline {
+  display: block;
+  margin-top: 0.32rem;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* Navigation. Stacked with thin dividers on a phone; a row of small
+   capitals on wider screens, with an underline that slides in on hover. */
+.site-nav .nav-link {
+  position: relative;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background-color: transparent;
+  transition: color var(--transition);
+}
+
+.site-nav .nav-item:last-child .nav-link {
+  border-bottom: 0;
+}
+
+.site-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.35rem;
+  height: 2px;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.site-nav .nav-link:hover,
+.site-nav .nav-link:focus {
+  color: var(--brand-dark);
+  background-color: transparent;
+}
+
+.site-nav .nav-link:hover::after,
+.site-nav .nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Uses aria-current, the same attribute the screen reader reads */
+.site-nav .nav-link[aria-current="page"] {
+  color: var(--brand-dark);
+  background-color: transparent;
+}
+
+.site-nav .nav-link[aria-current="page"]::after {
+  background-color: var(--brand);
+  transform: scaleX(1);
+}
+
+.navbar-toggler {
+  border-color: var(--line);
+  padding: 0.45rem 0.65rem;
+}
+
+/* --------------------------------------------------------------------------
+   5. Hero
+   The photograph is applied here rather than as an <img> because it is
+   decorative background; the page still carries its meaning in the heading.
+   -------------------------------------------------------------------------- */
+.hero {
+  /* Text sits on the left, so the overlay is darkest there and fades
+     across to let the sunset show. Both colours pass the contrast check. */
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 32rem;
+  padding: 4.5rem 0 5.5rem;
+  background-image:
+    linear-gradient(97deg,
+                    rgba(9, 45, 34, 0.92) 0%,
+                    rgba(9, 45, 34, 0.82) 42%,
+                    rgba(9, 45, 34, 0.40) 72%,
+                    rgba(9, 45, 34, 0.24) 100%),
+    url("../images/hero-cristo.jpg");
+  background-size: cover;
+  background-position: 62% center;
+  color: var(--paper);
+}
+
+/* Fine grain over the photo, for a printed look. Decorative only. It comes
+   first in the markup, so the text and buttons still sit on top of it and
+   are still clickable - I checked. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.32'/%3E%3C/svg%3E");
+}
+
+.hero .container {
+  position: relative;   /* keeps the text above the grain layer */
+  width: 100%;
+}
+
+.hero-inner {
+  max-width: 40rem;
+}
+
+.hero .eyebrow {
+  color: var(--accent-bright);
+}
+
+.hero .eyebrow::before {
+  background-color: var(--accent-bright);
+}
+
+.hero h1 {
+  margin: 0 0 1.15rem;
+  font-size: clamp(2.4rem, 8.5vw, 4.4rem);
+  line-height: 1.03;
+  letter-spacing: -0.028em;
+  color: var(--paper);
+}
+
+/* Just the one word in amber. Decoration - it does not carry meaning. */
+.hero-accent {
+  color: var(--accent-bright);
+  font-style: italic;
+}
+
+.hero p {
+  max-width: 32rem;
+  margin: 0;
+  font-size: 1.06rem;
+  color: #E4F0E9;
+}
+
+/* Needs .hero .hero-actions, not just .hero-actions - the .hero p rule
+   above was winning and killing this margin. Buttons stack full width on
+   a phone so they are the same size and easy to tap. */
+.hero .hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+  max-width: 20rem;
+  margin: 2.25rem 0 0;
+}
+
+.hero .hero-actions .btn-brand {
+  text-align: center;
+}
+
+/* Smaller hero for the inner pages, with the same amber rule under it */
+.page-hero {
+  background-color: var(--brand-dark);
+  color: var(--paper);
+  padding: 2.75rem 0 2.5rem;
+}
+
+.page-hero h1 {
+  position: relative;
+  padding-bottom: 0.85rem;
+  margin-bottom: 0.85rem;
+  color: var(--paper);
+  font-size: clamp(1.9rem, 5.5vw, 2.9rem);
+}
+
+.page-hero h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 3rem;
+  height: 2px;
+  background-color: var(--accent-bright);
+}
+
+.page-hero p {
+  color: #D6E6DE;
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   6. Buttons
+   -------------------------------------------------------------------------- */
+.btn-brand {
+  background-color: var(--brand);
+  color: var(--paper);
+  border: 2px solid var(--brand);
+  font-weight: 600;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.btn-brand:hover,
+.btn-brand:focus {
+  background-color: var(--brand-dark);
+  border-color: var(--brand-dark);
+  color: var(--paper);
+  transform: translateY(-2px);
+}
+
+.btn-on-dark {
+  background-color: var(--paper);
+  color: var(--brand-dark);
+  border-color: var(--paper);
+}
+
+.btn-on-dark:hover,
+.btn-on-dark:focus {
+  background-color: var(--accent-bright);
+  border-color: var(--accent-bright);
+  color: var(--brand-dark);
+}
+
+/* Amber for the main button - green on a dark photo disappeared */
+.btn-amber,
+.btn-amber:visited {
+  background-color: var(--accent-bright);
+  border-color: var(--accent-bright);
+  color: var(--brand-dark);
+}
+
+.btn-amber:hover,
+.btn-amber:focus {
+  background-color: var(--paper);
+  border-color: var(--paper);
+  color: var(--brand-dark);
+}
+
+/* Arrow nudges forward on hover */
+.btn-arrow {
+  display: inline-block;
+  margin-left: 0.35rem;
+  transition: transform var(--transition);
+}
+
+.btn-brand:hover .btn-arrow,
+.btn-brand:focus .btn-arrow {
+  transform: translateX(0.25rem);
+}
+
+/* Outlined, so it does not compete with the main button */
+.btn-ghost,
+.btn-ghost:visited {
+  background-color: transparent;
+  border-color: var(--paper);
+  color: var(--paper);
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus {
+  background-color: var(--paper);
+  border-color: var(--paper);
+  color: var(--brand-dark);
+}
+
+/* --------------------------------------------------------------------------
+   7. Sections and cards
+   -------------------------------------------------------------------------- */
+.section {
+  padding: 2.5rem 0;
+}
+
+.section-tint {
+  background-color: var(--brand-light);
+}
+
+/* Intro line under a heading. Bigger and looser than body text. */
+.section-intro {
+  max-width: 50ch;
+  margin-bottom: 2.25rem;
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+/* Line above each destination heading */
+.dest-entry > h3:first-child {
+  padding-top: 1.1rem;
+  margin-top: 0;
+  border-top: 2px solid var(--brand);
+}
+
+.card-feature {
+  background-color: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  height: 100%;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+/* Bonus feature: CSS transition on hover and on keyboard focus */
+.card-feature:hover,
+.card-feature:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
+}
+
+.card-feature img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.card-body-pad {
+  padding: 1.1rem 1.25rem 1.4rem;
+}
+
+.card-body-pad h3 {
+  margin-top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. Fact list on the home page
+   -------------------------------------------------------------------------- */
+.fact-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.fact-list li {
+  border-bottom: 1px solid var(--line);
+  padding: 0.7rem 0;
+}
+
+.fact-list li:last-child {
+  border-bottom: 0;
+}
+
+.fact-label {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.fact-value {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* --------------------------------------------------------------------------
+   9. BONUS FEATURE - pure CSS image gallery
+   No JavaScript: the caption is moved out of view with transform and slides
+   back in on hover or keyboard focus, driven only by a CSS transition.
+   -------------------------------------------------------------------------- */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;          /* one column on a phone */
+  gap: 1rem;
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.gallery-item:hover img,
+.gallery-item:focus-within img {
+  transform: scale(1.07);
+}
+
+.gallery-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.9rem 1.1rem;
+  background-color: rgba(11, 61, 46, 0.9);
+  color: #D9E8E1;
+  font-size: var(--step--1);
+  line-height: 1.35;
+  transform: translateY(100%);
+  transition: transform var(--transition);
+}
+
+.gallery-item:hover .gallery-caption,
+.gallery-item:focus-within .gallery-caption {
+  transform: translateY(0);
+}
+
+.gallery-caption strong {
+  display: block;
+  margin-bottom: 0.12rem;
+  font-family: var(--font-display);
+  font-size: var(--step-0);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--accent-bright);
+}
+
+/* No hover on a touch screen, so just show the caption all the time */
+@media (hover: none) {
+  .gallery-caption {
+    transform: translateY(0);
+  }
+}
+
+/* Respect a visitor who has asked their system to reduce motion. */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10. Table
+   The wrapper allows the table itself to scroll on a narrow screen instead
+   of pushing the whole page sideways.
+   -------------------------------------------------------------------------- */
+/* Ruled instead of boxed: no outer frame, no striped rows, just a thick
+   line under the headings and a thin one between rows. */
+.table-wrap {
+  overflow-x: auto;
+  border: 0;
+  border-radius: 0;
+}
+
+/* It can be focused, so it needs its own focus ring */
+.table-wrap:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 36rem;
+  margin: 0;
+  font-size: var(--step--1);
+  /* Lining, fixed-width figures, so the years form a straight column */
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.data-table caption {
+  caption-side: bottom;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--line);
+  margin-top: 0.25rem;
+  font-size: var(--step--1);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  text-align: left;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.85rem 1.5rem 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: baseline;
+}
+
+.data-table th:last-child,
+.data-table td:last-child {
+  padding-right: 0;
+}
+
+.data-table thead th {
+  padding-top: 0;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--brand-dark);
+  background-color: transparent;
+  color: var(--ink-soft);
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* The site name is the row's own heading, so it carries the weight */
+.data-table tbody th[scope="row"] {
+  font-weight: 600;
+  color: var(--brand-dark);
+  padding-right: 2rem;
+}
+
+.data-table tbody td {
+  color: var(--ink-soft);
+}
+
+.data-table tbody tr:last-child th,
+.data-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Dot plus a word, not a coloured pill. The word says it on its own, so
+   the colour is never doing the work by itself. */
+.tag {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tag::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.tag-cultural { color: #7A4100; }
+.tag-natural  { color: #005E37; }
+.tag-mixed    { color: #4B3A8F; }
+
+/* --------------------------------------------------------------------------
+   11. Video (bonus feature on the culture page)
+   The padding-bottom trick keeps a 16:9 box at any width.
+   -------------------------------------------------------------------------- */
+.video-frame {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;      /* 9 / 16 = 0.5625 */
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.video-frame iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   12. Footer (identical on every page, holds the contact e-mail link)
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--brand-dark);
+  color: #DCEAE3;
+  padding: 2.5rem 0 1.5rem;
+  margin-top: 3rem;
+}
+
+.site-footer h2,
+.site-footer h3 {
+  color: var(--accent-bright);
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+.site-footer a,
+.site-footer a:visited {
+  color: var(--paper);
+}
+
+.site-footer a:hover,
+.site-footer a:focus {
+  color: var(--accent-bright);
+}
+
+.footer-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: var(--step--1);
+}
+
+.footer-list li {
+  margin-bottom: 0.45rem;
+}
+
+/* Photo credits, set small in a ruled column */
+.credits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  font-size: var(--step--1);
+  line-height: 1.45;
+  color: var(--ink-soft);
+  columns: 1;
+}
+
+.credits li {
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--line);
+  break-inside: avoid;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  font-size: 0.85rem;
+}
+
+/* --------------------------------------------------------------------------
+   12b. Portrait photo strip on the home page
+   The photographs are portrait, so they get their own row rather than being
+   squeezed into the 4:3 frames the gallery uses.
+   -------------------------------------------------------------------------- */
+.photo-strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.photo-strip figure {
+  margin: 0;
+  height: 100%;
+}
+
+.photo-strip img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.photo-strip figcaption {
+  padding-top: 0.85rem;
+  margin-top: 0.85rem;
+  border-top: 1px solid var(--line);
+  font-size: var(--step--1);
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.photo-strip figcaption strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-family: var(--font-display);
+  font-size: var(--step-0);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--brand-dark);
+}
+
+/* --------------------------------------------------------------------------
+   13. Breadcrumb trail on the three inner pages
+   A second, smaller navigation that shows where the page sits in the site.
+   -------------------------------------------------------------------------- */
+.breadcrumb-bar {
+  background-color: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: 0.6rem 0;
+}
+
+.breadcrumb-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding-left: 0;
+  font-size: var(--step--2);
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* Separator done in CSS so a screen reader does not read it out */
+.breadcrumb-list li + li::before {
+  content: "\203A";
+  margin-right: 0.4rem;
+  color: var(--ink-soft);
+}
+
+.breadcrumb-list [aria-current="page"] {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* --------------------------------------------------------------------------
+   14. "At a glance" definition lists under each destination
+   A <dl> is the correct element for label-and-value pairs like these.
+   -------------------------------------------------------------------------- */
+/* Ruled like the table above, for the same reason */
+.spec-list {
+  display: grid;
+  grid-template-columns: minmax(6rem, auto) 1fr;
+  gap: 0;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-top: 2px solid var(--brand-dark);
+  font-size: var(--step--1);
+}
+
+/* Extra padding on top because the label is smaller than the value and
+   was sitting slightly high */
+.spec-list dt {
+  padding: 0.78rem 1.5rem 0.62rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.spec-list dd {
+  margin: 0;
+  padding: 0.62rem 0;
+  border-bottom: 1px solid var(--line);
+  font-weight: 500;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Version for the Portuguese phrases - they keep their own capitals */
+.spec-list-phrases dt {
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--font-display);
+  font-size: var(--step-0);
+  font-weight: 600;
+  color: var(--brand-dark);
+  font-style: italic;
+}
+
+.spec-list-phrases dd {
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+/* --------------------------------------------------------------------------
+   15. Anchor targets
+   Picking a photo jumps you down to its write-up. This highlights the one
+   you landed on, and stops the heading hiding under the navbar.
+   -------------------------------------------------------------------------- */
+[id] {
+  scroll-margin-top: 1.5rem;
+}
+
+.section-tint article:target {
+  background-color: var(--paper);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  outline: 2px solid var(--brand);
+  outline-offset: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   16. Back-to-top link, at the foot of the longer pages
+   -------------------------------------------------------------------------- */
+.to-top {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Smooth scroll, but not for anyone who asked for reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+::selection {
+  background-color: var(--brand-light);
+  color: var(--brand-dark);
+}
+
+/* --------------------------------------------------------------------------
+   17. Larger screens
+   Everything above is the phone layout. These blocks add the wider grid.
+   -------------------------------------------------------------------------- */
+@media (min-width: 576px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 576px) {
+  /* Enough width for the two buttons to sit side by side at their own size */
+  .hero .hero-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: none;
+    gap: 0.85rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .photo-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  /* Two columns once there is room, so the list is not so long */
+  .credits {
+    columns: 2;
+    column-gap: 2.5rem;
+  }
+
+  .hero {
+    min-height: 38rem;
+    padding: 6rem 0 7rem;
+  }
+
+  .section {
+    padding: 3.5rem 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero {
+    min-height: 42rem;
+  }
+
+  .hero p {
+    font-size: 1.15rem;
+  }
+
+  /* Menu is a row now, so drop the dividers and add the underline */
+  .site-nav .nav-link {
+    padding: 0.5rem 0;
+    margin-left: 2rem;
+    border-bottom: 0;
+  }
+
+  .site-nav .nav-link::after {
+    bottom: -0.1rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   18. Print
+   People print travel guides, so drop the menu and the video and write out
+   where each link goes, since you cannot click paper.
+   -------------------------------------------------------------------------- */
+@media print {
+  .site-header,
+  .breadcrumb-bar,
+  .site-footer,
+  .skip-link,
+  .to-top,
+  .video-frame,
+  .btn-brand {
+    display: none;
+  }
+
+  body {
+    color: #000;
+    background: #fff;
+    font-size: 11pt;
+  }
+
+  .hero,
+  .page-hero {
+    background: none;
+    color: #000;
+    padding: 0 0 1rem;
+  }
+
+  .hero h1,
+  .page-hero h1,
+  .page-hero p {
+    color: #000;
+  }
+
+  .section,
+  .section-tint {
+    background: none;
+    padding: 0.75rem 0;
+  }
+
+  /* Print the address of every external link, since a printed page cannot
+     be clicked. */
+  main a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    word-break: break-all;
+  }
+
+  /* Never split a table row or a write-up across two sheets. */
+  tr,
+  article,
+  .spec-list {
+    page-break-inside: avoid;
+  }
+}

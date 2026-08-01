@@ -20,19 +20,18 @@ page and the licence name linking to the licence.
 | `images/maracana.jpg` | The Maracanã during Fluminense against Vasco da Gama, May 2023 | Vincenzo.togni | CC BY-SA 4.0 | <https://commons.wikimedia.org/wiki/File:The_Maracanã_Stadium_during_a_Clássico_dos_Gigantes_between_Fluminense_and_Vasco_da_Gama_in_May_2023.jpg> |
 | `images/hero-rio.jpg` | Christ the Redeemer and Sugarloaf at sunset, Rio de Janeiro | Donatas Dabravolskas | CC BY-SA 4.0 | <https://commons.wikimedia.org/wiki/File:Boca_da_Ba%C3%ADa_de_Guanabara_e_orlas_artificiais_-_Parque_do_Flamengo,_Fortes_Hist%C3%B3ricos_de_Niter%C3%B3i,_Monumento_Natural_do_P%C3%A3o_de_A%C3%A7%C3%BAcar,_orla_mar%C3%ADtima_de_Copacabana_-_Rio_de_Janeiro_-_20240623064031.jpg> |
 | `images/iguacu.jpg` | Iguaçu Falls | W. Bulach | CC BY-SA 4.0 | <https://commons.wikimedia.org/wiki/File:00_1826_Iguazu_Falls_-_South_America,_Brazil.jpg> |
-| `images/salvador.jpg` | Largo do Pelourinho, Salvador | Romerito Pontes | CC BY 2.0 | not recorded at the time; see the note below |
+| `images/salvador.jpg` | Largo do Pelourinho, Salvador | Romerito Pontes | CC BY 2.0 | <https://commons.wikimedia.org/wiki/File:-2015-08-09-_Salvador_43_Romerito_Pontes_(19834934773).jpg> |
 | `images/amazon.jpg` | Amazon river and rainforest from the air | lubasi | CC BY-SA 2.0 | <https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_Amazon_Rainforest.jpg> |
 | `images/lencois.jpg` | Lagoon between dunes, Lençóis Maranhenses | Paulo Cattelan | CC BY-SA 4.0 | <https://commons.wikimedia.org/wiki/File:Parque_Nacional_dos_Len%C3%A7%C3%B3is_Maranhenses_Paulo_Cattelan_(03).jpg> |
 | `images/ouro-preto.jpg` | Baroque church, Ouro Preto | Adam Jones | CC BY-SA 3.0 | <https://commons.wikimedia.org/wiki/File:Church_in_Ouro_Preto_-_Minas_Gerais_-_Brazil_01.jpg> |
 | `images/carnival.jpg` | Samba school float, Rio Carnival (Unidos da Ponte, 1994) | Sandra de Souza | CC BY-SA 2.0 | <https://commons.wikimedia.org/wiki/File:Carnaval_1994_Unidos_da_Ponte_Homenageia_Dona_Zica_em_Desfile_na_Sapuca%C3%AD_no_Rio_de_Janeiro.jpg> |
 | `images/food.jpg` | Feijoada served with rice and orange | Ridiculopathy | CC0 (public domain) | <https://commons.wikimedia.org/wiki/File:Feijoada_(Brazilian_dish),_S%C3%A3o_Lu%C3%ADs,_Maranh%C3%A3o.jpg> |
 
-Seven of those file pages were not written down when the photographs were downloaded.
-They were found again by comparing each photograph on the site with the search results
-on Commons, image against image, and only a close match was accepted. The Salvador
-photograph was not matched that way. Its photographer and licence are the ones recorded
-at the time, so the credit stands, but the file page is not linked because the exact
-page could not be confirmed.
+Eight of those file pages were not written down when the photographs were downloaded.
+Seven were found again by comparing each photograph on the site with the search results
+on Commons, image against image, and only a close match was accepted. The Salvador one
+did not turn up that way and was recovered from the notes of the session the photographs
+were downloaded in; it was then checked the same way as the others before being linked.
 
 The four photographs at the top of the table were cropped and resized for the site;
 nothing else about them was altered. CC BY-SA only asks for credit and for the licence

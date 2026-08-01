@@ -282,9 +282,59 @@ img {
   transform: scaleX(1);
 }
 
-.navbar-toggler {
-  border-color: var(--line);
-  padding: 0.45rem 0.65rem;
+/* The menu button on a phone. There is no script behind it: the checkbox
+   holds the open or closed state, and the rules below react to it. The
+   checkbox itself is off-screen but still reachable with the keyboard. */
+.nav-toggle-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* It is a flex item next to a wide brand, so stop it being squeezed */
+  flex: 0 0 auto;
+  width: 2.9rem;
+  height: 2.6rem;
+  border: 1px solid var(--line);
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.nav-toggle-bars,
+.nav-toggle-bars::before,
+.nav-toggle-bars::after {
+  display: block;
+  width: 1.3rem;
+  height: 2px;
+  background-color: var(--ink);
+}
+
+.nav-toggle-bars {
+  position: relative;
+}
+
+.nav-toggle-bars::before,
+.nav-toggle-bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle-bars::before {
+  top: -0.45rem;
+}
+
+.nav-toggle-bars::after {
+  top: 0.45rem;
+}
+
+/* Checked means open. The id beats Bootstrap's rule that hides the panel. */
+#navToggle:checked ~ .navbar-collapse {
+  display: block;
+}
+
+/* The checkbox is off-screen, so the outline has to land on the label */
+#navToggle:focus-visible + .nav-toggle-label {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
 }
 
 /* --------------------------------------------------------------------------
@@ -1076,6 +1126,11 @@ img {
 
   .hero p {
     font-size: 1.15rem;
+  }
+
+  /* Wide enough for the full menu, so the button is not needed */
+  .nav-toggle-label {
+    display: none;
   }
 
   /* Menu is a row now, so drop the dividers and add the underline */

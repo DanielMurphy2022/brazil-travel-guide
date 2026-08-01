@@ -27,11 +27,11 @@ address does not exist, so a mistyped link still lands on a page with the menu o
 - CSS3 in one external stylesheet, `css/style.css`. No inline styles, no `<style>`
   blocks and no `<font>` tags anywhere. Custom properties for the colours, spacing and
   type sizes; CSS Grid for the gallery; CSS transitions for the hover states.
-- Bootstrap 5.3.3 from a CDN, for the grid and the collapsing navbar. Both Bootstrap
-  files use an `integrity` hash so the browser can check they have not been altered.
+- Bootstrap 5.3.3 from a CDN, the stylesheet only, for the grid and the navbar layout.
+  It uses an `integrity` hash so the browser can check it has not been altered.
 - Two fonts from Google Fonts: Fraunces for headings, Libre Franklin for body text.
-- No JavaScript of my own. The only script is Bootstrap's own bundle, which the mobile
-  menu button needs.
+- No JavaScript at all, not mine and not anyone else's. The menu that opens on a phone
+  is a checkbox and a few CSS rules, so there is no `<script>` tag on any page.
 
 ## Folder structure
 
@@ -79,7 +79,8 @@ add the wider layouts on top, at 576px, 768px and 992px.
 - [x] Consistent banner and logo area
 - [x] Consistent main navigation
 - [x] External stylesheet
-- [x] Bootstrap for the responsive layout and the navigation
+- [x] Bootstrap for the responsive layout and the navigation, stylesheet only
+- [x] HTML and CSS only, with no JavaScript on any page
 - [x] Bonus features: CSS image gallery, CSS transitions and an embedded video
 - [x] Works in Chrome, Edge and Firefox
 - [x] Mobile-first
